@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    background-color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* Antet Flexbox: nume în stânga, meniu în dreapta */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #1f3b5d;
+    color: #ffffff;
+}
+
+.site-header .logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Grid pentru cardurile de destinații */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid #d0d7e2;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card evidențiat cu clasa featured */
+.card.featured {
+    border: 2px solid #5b3fd9;
+    background-color: #f3f0ff;
+}
+
+/* Formularul: câmpuri unul sub altul, etichete deasupra, lățime maximă */
+.plan-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+}
+
+.plan-form label {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.plan-form input,
+.plan-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.plan-form input:focus,
+.plan-form select:focus {
+    outline: 2px solid #5b3fd9;
+}
+
+.plan-form button {
+    margin-top: 18px;
+    padding: 12px;
+    background-color: #5b3fd9;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.plan-form button:hover {
+    background-color: #492eb8;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2e8f0;
+    margin-top: 40px;
+}
