@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1 class="logo">City Explorer</h1>
+        <nav class="menu">
+            <a href="#destinatii">Destinații</a>
+            <a href="#planifica">Planifică</a>
+            <a href="#recomandari">Recomandări</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="destinatii">
+            <h2>Destinații</h2>
+            <div class="cards">
+                <article class="card featured">
+                    <h3>Roma</h3>
+                    <p><strong>Țară:</strong> Italia</p>
+                    <p>Orașul etern, renumit pentru Colosseum și bucătăria italiană veritabilă.</p>
+                    <p><em>Durată recomandată: 4 zile</em></p>
+                </article>
+
+                <article class="card">
+                    <h3>Paris</h3>
+                    <p><strong>Țară:</strong> Franța</p>
+                    <p>Capitala luminilor, a artei și a promenadei de-a lungul Senei.</p>
+                    <p><em>Durată recomandată: 5 zile</em></p>
+                </article>
+
+                <article class="card">
+                    <h3>Lisabona</h3>
+                    <p><strong>Țară:</strong> Portugalia</p>
+                    <p>Orașul celor șapte coline, faimos pentru tramvaiul 28 și pastel de nata.</p>
+                    <p><em>Durată recomandată: 3 zile</em></p>
+                </article>
+
+                <article class="card">
+                    <h3>Barcelona</h3>
+                    <p><strong>Țară:</strong> Spania</p>
+                    <p>Arhitectura fascinantă a lui Gaudí combinată cu plajele mediteraneene.</p>
+                    <p><em>Durată recomandată: 4 zile</em></p>
+                </article>
+
+                <article class="card">
+                    <h3>Praga</h3>
+                    <p><strong>Țară:</strong> Cehia</p>
+                    <p>Centrul vechi istoric, Podul Carol și atmosfera medievală unică.</p>
+                    <p><em>Durată recomandată: 3 zile</em></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="planifica">
+            <h2>Planifică</h2>
+            <form class="plan-form">
+                <label for="name">Nume</label>
+                <input id="name" name="name" type="text" placeholder="Numele tău" required>
+
+                <label for="destination">Destinație</label>
+                <select id="destination" name="destination" required>
+                    <option value="">Alege o destinație...</option>
+                    <option value="Roma">Roma</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Lisabona">Lisabona</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="Praga">Praga</option>
+                </select>
+
+                <label for="days">Număr de zile</label>
+                <input id="days" name="days" type="number" min="1" max="30" placeholder="ex: 4" required>
+
+                <button type="submit">Planifică excursia</button>
+            </form>
+        </section>
+
+        <section id="recomandari">
+            <h2>Recomandări</h2>
+            <ul class="tips-list">
+                <li>Rezervă biletele la marile muzee din timp pentru a evita cozile la intrare.</li>
+                <li>Mergi pe jos pe cât posibil pentru a descoperi străduțele și restaurantele locale autentice.</li>
+                <li>Păstrează mereu o copie digitală a documentelor importante de călătorie.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>City Explorer &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
