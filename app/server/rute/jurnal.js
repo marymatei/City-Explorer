@@ -1,0 +1,29 @@
+// Raportul jurnalului: GET /api/jurnal/raport (exercitiul 4b)
+// ATENTIE: aici filtrul este LIPIT in textul interogarii, intentionat, pentru fisa (punctul 4)
+import { Router } from 'express'
+import { pool } from '../db.js'
+
+const router = Router()
+
+// Calea '/raport' se adauga dupa /api/jurnal
+router.get('/raport', async (req, res) => {
+  const metoda = req.query.metoda ?? '' // filtrul optional ?metoda=GET
+
+  // Cele mai cerute adrese: metoda, calea, numarul de cereri si durata medie
+  let sql = 'SELECT metoda, cale, COUNT(*) AS cereri, ROUND(AVG(durata_ms), 1) AS medie_ms FROM jurnal'
+
+  // GRESIT, intentionat: valoarea venita de la client e lipita direct in text
+  if (metoda !== '') {
+    sql += ` WHERE metoda = '${metoda}'`
+  }
+
+  // Grupare, ordonare descrescatoare dupa numarul de cereri, cel mult 10 randuri
+  sql += ' GROUP BY metoda, cale ORDER BY cereri DESC LIMIT 10'
+
+  const [randuri] = await pool.query(sql)
+
+  // AVG (si COUNT) se transforma in numar inainte de trimitere
+  res.json(randuri.map((r) => ({ ...r, cereri: Number(r.cereri), medie_ms: Number(r.medie_ms) })))
+})
+
+export default router

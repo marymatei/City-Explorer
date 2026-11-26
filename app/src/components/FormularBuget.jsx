@@ -1,16 +1,18 @@
+// Exemplul din laboratorul 4: formular cu un singur camp, pentru buget
 import { useState } from 'react'
 
 export default function FormularBuget({ onCauta }) {
-  const [buget, setBuget] = useState('')
-  const [eroare, setEroare] = useState('')
+  const [buget, setBuget] = useState('')  // valoarea din camp (text)
+  const [eroare, setEroare] = useState('') // mesajul de eroare
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault() // opreste reincarcarea paginii
 
-    const numar = Number(buget)
+    const numar = Number(buget) // transforma textul in numar
 
+    // Bugetul trebuie sa fie un numar de cel putin 50
     if (buget === '' || Number.isNaN(numar) || numar < 50) {
-      setEroare('Bugetul este un număr de cel puțin 50 de euro.')
+      setEroare('Bugetul este un numar de cel putin 50 de euro.')
       return
     }
 
@@ -26,7 +28,7 @@ export default function FormularBuget({ onCauta }) {
         value={buget}
         onChange={(event) => setBuget(event.target.value)}
       />
-      <button type="submit">Caută</button>
+      <button type="submit">Cauta</button>
       {eroare && <p className="eroare-camp">{eroare}</p>}
     </form>
   )

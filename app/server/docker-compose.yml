@@ -1,0 +1,24 @@
+# Baza de date a lucrarii. Se porneste cu: docker compose up -d
+services:
+  mariadb:
+    image: mariadb:11              # versiunea serverului, aceeasi la toata lumea
+    container_name: mariadb-tw     # numele containerului
+    restart: unless-stopped        # porneste din nou odata cu calculatorul
+    environment:
+      MARIADB_ROOT_PASSWORD: root  # parola administratorului
+      MARIADB_DATABASE: city_explorer  # baza creata la prima pornire
+      MARIADB_USER: web            # utilizatorul aplicatiei
+      MARIADB_PASSWORD: web        # parola utilizatorului aplicatiei
+    ports:
+      - "3306:3306"                # leaga portul containerului de portul calculatorului
+    volumes:
+      - tw-date:/var/lib/mysql     # pastreaza datele intr-un volum
+      - ./schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro  # ruleaza schema.sql la prima pornire
+    healthcheck:                   # cum verifica Docker ca serverul chiar raspunde
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  tw-date:                         # volumul in care stau datele bazei

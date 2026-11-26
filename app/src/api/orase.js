@@ -1,15 +1,18 @@
+// Exemplul din laboratorul 4: functiile pentru tabela orase
 const API_URL = 'http://localhost:3001'
 
+// Aduce lista de orase (GET)
 export async function getOrase() {
   const response = await fetch(`${API_URL}/orase`)
 
   if (!response.ok) {
-    throw new Error(`Serverul a răspuns cu ${response.status}`)
+    throw new Error(`Serverul a raspuns cu ${response.status}`)
   }
 
   return response.json()
 }
 
+// Trimite un oras nou (POST)
 export async function postOras(oras) {
   const response = await fetch(`${API_URL}/orase`, {
     method: 'POST',
@@ -18,7 +21,7 @@ export async function postOras(oras) {
   })
 
   if (!response.ok) {
-    throw new Error(`Serverul a răspuns cu ${response.status}`)
+    throw new Error(`Serverul a raspuns cu ${response.status}`)
   }
 
   return response.json()

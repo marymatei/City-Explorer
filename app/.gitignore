@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# fisierul cu parola bazei de date nu se urca pe GitHub
+.env
